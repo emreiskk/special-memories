@@ -669,51 +669,58 @@ section {
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* Counter Section */
-.counter-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+/* Counter Section - Unified Design */
+.counter-section {
+    margin: 80px 0;
 }
 
-.counter {
+.unified-counter {
+    max-width: 800px;
+    margin: 0 auto;
     background: white;
-    padding: 30px 40px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    min-width: 150px;
-    transition: all 0.3s ease;
+    padding: 50px 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.counter::after {
+.unified-counter::before {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.05), transparent);
     transform: rotate(45deg);
     animation: shimmer 4s infinite;
 }
 
-.counter:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.unified-counter:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
 }
 
-.counter-value {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #667eea;
-    margin-bottom: 10px;
+.counter-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
     position: relative;
     z-index: 1;
+}
+
+.counter-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #667eea;
     animation: numberPulse 2s ease-in-out infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 80px;
+    text-align: center;
 }
 
 @keyframes numberPulse {
@@ -721,24 +728,43 @@ section {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.05);
+        transform: scale(1.08);
     }
 }
 
-.counter-label {
-    font-size: 1.1rem;
-    color: #666;
+.counter-text {
+    font-size: 1.3rem;
+    color: #764ba2;
+    font-weight: 600;
     text-transform: uppercase;
-    position: relative;
-    z-index: 1;
+    letter-spacing: 1px;
 }
 
-.counter-note {
+.counter-separator {
+    font-size: 3rem;
+    color: #f093fb;
+    font-weight: bold;
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.counter-message {
     text-align: center;
-    color: white;
-    font-size: 0.9rem;
-    opacity: 0.8;
+    color: #667eea;
+    font-size: 1.2rem;
     margin-top: 30px;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
 }
 
 /* Final Message */
@@ -828,17 +854,31 @@ section {
         left: 10px !important;
     }
 
-    .counter-container {
-        gap: 20px;
+    .unified-counter {
+        padding: 30px 20px;
+        margin: 0 10px;
     }
 
-    .counter {
-        padding: 20px 30px;
-        min-width: 120px;
+    .counter-number {
+        font-size: 2.5rem;
+        min-width: 60px;
     }
 
-    .counter-value {
+    .counter-text {
+        font-size: 1rem;
+    }
+
+    .counter-separator {
         font-size: 2rem;
+    }
+
+    .counter-message {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    .counter-display {
+        gap: 8px;
     }
 
     .flip-cards-grid {
