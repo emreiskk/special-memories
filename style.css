@@ -7,10 +7,18 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Animated Hearts Background */
@@ -74,10 +82,26 @@ body {
     animation-delay: 8s;
 }
 
+.heart:nth-child(6) {
+    left: 20%;
+    animation-delay: 3s;
+}
+
+.heart:nth-child(7) {
+    left: 60%;
+    animation-delay: 7s;
+}
+
+.heart:nth-child(8) {
+    left: 40%;
+    animation-delay: 5s;
+}
+
 @keyframes float {
     0% {
         bottom: -20px;
         opacity: 0;
+        transform: rotate(45deg) translateX(0);
     }
     10% {
         opacity: 1;
@@ -88,6 +112,48 @@ body {
     100% {
         bottom: 100vh;
         opacity: 0;
+        transform: rotate(45deg) translateX(100px);
+    }
+}
+
+/* Sparkling Stars */
+.stars-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+.star:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 30%; left: 40%; animation-delay: 1s; }
+.star:nth-child(4) { top: 40%; left: 70%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 60%; left: 20%; animation-delay: 2s; }
+.star:nth-child(6) { top: 70%; left: 90%; animation-delay: 2.5s; }
+.star:nth-child(7) { top: 80%; left: 50%; animation-delay: 3s; }
+.star:nth-child(8) { top: 50%; left: 10%; animation-delay: 0.7s; }
+.star:nth-child(9) { top: 15%; left: 60%; animation-delay: 1.3s; }
+.star:nth-child(10) { top: 85%; left: 30%; animation-delay: 2.2s; }
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
     }
 }
 
@@ -127,6 +193,10 @@ body {
     animation: fadeIn 1.5s ease-in 0.5s both;
 }
 
+.fade-in-delay-2 {
+    animation: fadeIn 1.5s ease-in 1s both;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -135,6 +205,54 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Glow Effect */
+.glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.6),
+                 0 0 40px rgba(255, 255, 255, 0.4);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                     0 0 30px rgba(255, 255, 255, 0.6),
+                     0 0 40px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                     0 0 40px rgba(255, 255, 255, 0.8),
+                     0 0 50px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    margin-top: 40px;
+    text-align: center;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-hint span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.scroll-hint p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }
 
@@ -164,23 +282,62 @@ section {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     transform: translateY(0);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.message-card.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 .message-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
 }
 
 .message-card h2 {
     color: #667eea;
     margin-bottom: 20px;
     font-size: 2rem;
+    position: relative;
 }
 
 .message-card p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .signature {
@@ -188,6 +345,27 @@ section {
     font-style: italic;
     color: #764ba2;
     font-weight: bold;
+    position: relative;
+}
+
+.card-sparkle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    animation: rotateSpark 4s linear infinite;
+}
+
+@keyframes rotateSpark {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
 }
 
 /* Photo Gallery */
@@ -207,7 +385,8 @@ section {
 }
 
 .photo-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .photo-placeholder {
@@ -360,6 +539,26 @@ section {
     text-align: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     min-width: 150px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.counter::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 4s infinite;
+}
+
+.counter:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .counter-value {
@@ -367,12 +566,26 @@ section {
     font-weight: bold;
     color: #667eea;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    animation: numberPulse 2s ease-in-out infinite;
+}
+
+@keyframes numberPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .counter-label {
     font-size: 1.1rem;
     color: #666;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
 }
 
 .counter-note {
@@ -412,8 +625,33 @@ section {
 .final-message p {
     font-size: 1.3rem;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     opacity: 0.9;
+}
+
+.final-quote {
+    font-style: italic;
+    font-size: 1.5rem !important;
+    margin-top: 30px !important;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.infinity-symbol {
+    font-size: 4rem;
+    margin-top: 30px;
+    animation: rainbow 5s linear infinite;
+    display: inline-block;
+}
+
+@keyframes rainbow {
+    0% { color: #ff6b6b; }
+    16% { color: #f093fb; }
+    33% { color: #667eea; }
+    50% { color: #764ba2; }
+    66% { color: #f093fb; }
+    83% { color: #ff6b6b; }
+    100% { color: #ff6b6b; }
 }
 
 /* Responsive Design */

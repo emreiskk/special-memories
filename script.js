@@ -74,3 +74,46 @@ const loveQuotes = [
 // Console'a gizli mesaj (tarayıcı geliştirici araçlarını açanlara sürpriz)
 console.log("%c❤️ Bu siteyi sevgiyle yaptım ❤️", "color: #e74c3c; font-size: 20px; font-weight: bold;");
 console.log("%cSeni seviyorum! 💕", "color: #667eea; font-size: 16px;");
+
+// Sayfa yüklendiğinde özel efektler
+document.addEventListener('DOMContentLoaded', () => {
+    // Kalp tıklama efekti
+    document.addEventListener('click', (e) => {
+        createClickHeart(e.pageX, e.pageY);
+    });
+});
+
+// Tıklandığında kalp oluştur
+function createClickHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.style.position = 'fixed';
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+    heart.style.fontSize = '20px';
+    heart.style.pointerEvents = 'none';
+    heart.style.zIndex = '9999';
+    heart.style.animation = 'floatUp 2s ease-out forwards';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 2000);
+}
+
+// CSS animasyonu ekle
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes floatUp {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-100px) scale(0.5);
+        }
+    }
+`;
+document.head.appendChild(style);
