@@ -546,7 +546,7 @@ section {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    transform-origin: center;
+    transform-origin: center center;
 }
 
 .flip-card.flipped .flip-card-inner {
@@ -570,6 +570,11 @@ section {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Front Side */
@@ -658,6 +663,9 @@ section {
     font-style: italic;
     position: relative;
     z-index: 1;
+    max-width: 100%;
+    text-align: center;
+    margin: 0;
 }
 
 /* Hover Effects */
@@ -888,18 +896,31 @@ section {
     }
 
     .flip-card {
-        height: 260px;
+        height: 300px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        padding: 20px;
     }
 
     .flip-card-front h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
     }
 
     .card-icon {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
     }
 
     .flip-card-back p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        padding: 10px;
+    }
+
+    .card-hint {
+        font-size: 0.85rem;
     }
 }
