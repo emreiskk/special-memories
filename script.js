@@ -1,0 +1,76 @@
+// Love Counter - Birlikte geçirilen zamanı hesaplar
+// BURAYA İLK BULUŞMA TARİHİNİZİ GİRİN (Yıl, Ay-1, Gün, Saat, Dakika)
+// Örnek: new Date(2024, 0, 15, 14, 30) = 15 Ocak 2024, Saat 14:30
+const startDate = new Date(2024, 0, 1, 0, 0); // Varsayılan: 1 Ocak 2024
+
+function updateCounter() {
+    const now = new Date();
+    const difference = now - startDate;
+
+    // Zamanı hesapla
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+    // DOM'u güncelle
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+}
+
+// Sayacı başlat ve her dakika güncelle
+updateCounter();
+setInterval(updateCounter, 60000);
+
+// Smooth scroll effect
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Animate elements on scroll
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.photo-card, .timeline-item, .memory-card, .counter');
+
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+
+// Rastgele romantik sözler (isteğe bağlı)
+const loveQuotes = [
+    "Seninle her an özel...",
+    "Gülüşün benim en sevdiğim şey...",
+    "Seninle geleceğe bakıyorum...",
+    "Her gün seni daha çok seviyorum...",
+    "Seninle hayat daha güzel..."
+];
+
+// Console'a gizli mesaj (tarayıcı geliştirici araçlarını açanlara sürpriz)
+console.log("%c❤️ Bu siteyi sevgiyle yaptım ❤️", "color: #e74c3c; font-size: 20px; font-weight: bold;");
+console.log("%cSeni seviyorum! 💕", "color: #667eea; font-size: 16px;");
