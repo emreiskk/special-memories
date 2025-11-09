@@ -1,0 +1,19 @@
+GitHub'a Yüklemek İçin Komutlar
+=====================================
+
+1. Terminalinde şu komutu çalıştır (GitHub kullanıcı adını değiştir):
+
+git remote add origin https://github.com/KULLANICI-ADIN/special-memories.git
+git branch -M main
+git push -u origin main
+
+KULLANICI-ADIN yerine kendi GitHub kullanıcı adını yaz!
+
+Örnek:
+git remote add origin https://github.com/johndoe/special-memories.git
+
+
+2. GitHub şifreni sorarsa:
+   - Personal Access Token kullanman gerekebilir
+   - GitHub Settings > Developer settings > Personal access tokens
+   - "Generate new token" ile yeni token oluştur
