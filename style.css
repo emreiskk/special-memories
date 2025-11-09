@@ -503,35 +503,161 @@ section {
     margin-bottom: 10px;
 }
 
-/* Memories Grid */
-.memories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+/* Love Notes Section - Interactive Flip Cards */
+.love-notes-section {
+    margin: 80px 0;
 }
 
-.memory-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
+.section-subtitle {
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: -20px;
+    margin-bottom: 40px;
+    opacity: 0.9;
 }
 
-.memory-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+.flip-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    perspective: 1000px;
 }
 
-.memory-icon {
-    font-size: 3rem;
+/* Flip Card Container */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 280px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Sides */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Front Side */
+.flip-card-front {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-card-front::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.flip-card-front h3 {
+    font-size: 1.8rem;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.memory-card p {
-    color: #666;
+.card-hint {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Back Side */
+.flip-card-back {
+    background: white;
+    color: #333;
+    transform: rotateY(180deg);
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-card-back::before {
+    content: '💌';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.flip-card-back p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #667eea;
     font-weight: 500;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover Effects */
+.flip-card:hover .flip-card-front {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+.flip-card:hover .flip-card-back {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
 /* Counter Section */
@@ -704,5 +830,27 @@ section {
 
     .counter-value {
         font-size: 2rem;
+    }
+
+    .flip-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .flip-card {
+        height: 260px;
+    }
+
+    .flip-card-front h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-icon {
+        font-size: 3rem;
+    }
+
+    .flip-card-back p {
+        font-size: 1rem;
     }
 }

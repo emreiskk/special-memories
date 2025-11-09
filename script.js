@@ -79,7 +79,18 @@ console.log("%cSeni seviyorum! 💕", "color: #667eea; font-size: 16px;");
 document.addEventListener('DOMContentLoaded', () => {
     // Kalp tıklama efekti
     document.addEventListener('click', (e) => {
-        createClickHeart(e.pageX, e.pageY);
+        // Eğer flip card tıklanıyorsa kalp oluşturma
+        if (!e.target.closest('.flip-card')) {
+            createClickHeart(e.pageX, e.pageY);
+        }
+    });
+
+    // Flip card tıklama efekti
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
     });
 });
 
