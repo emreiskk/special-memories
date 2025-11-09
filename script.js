@@ -1,7 +1,7 @@
 // Love Counter - Birlikte geçirilen zamanı hesaplar
 // BURAYA İLK BULUŞMA TARİHİNİZİ GİRİN (Yıl, Ay-1, Gün, Saat, Dakika)
 // Örnek: new Date(2024, 0, 15, 14, 30) = 15 Ocak 2024, Saat 14:30
-const startDate = new Date(2025, 7, 10, 0, 0); // 10 Ağustos 2025
+const startDate = new Date(2025, 7, 10, 8, 0); // 10 Ağustos 2025, Sabah 08:00
 
 function updateCounter() {
     const now = new Date();
