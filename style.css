@@ -391,12 +391,22 @@ section {
 
 .photo-placeholder {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    height: 200px;
+    aspect-ratio: 4 / 3;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .photo-placeholder span {
