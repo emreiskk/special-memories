@@ -92,6 +92,22 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.toggle('flipped');
         });
     });
+
+    // Bucket list checkbox'ları - localStorage ile kaydet
+    const bucketCheckboxes = document.querySelectorAll('.bucket-checkbox');
+
+    // Sayfa yüklendiğinde kaydedilmiş durumları yükle
+    bucketCheckboxes.forEach(checkbox => {
+        const savedState = localStorage.getItem(checkbox.id);
+        if (savedState === 'true') {
+            checkbox.checked = true;
+        }
+
+        // Checkbox değiştiğinde kaydet
+        checkbox.addEventListener('change', function() {
+            localStorage.setItem(this.id, this.checked);
+        });
+    });
 });
 
 // Tıklandığında kalp oluştur
