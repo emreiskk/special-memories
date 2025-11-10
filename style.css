@@ -434,105 +434,124 @@ section {
     margin-top: 20px;
 }
 
-/* Bucket List Section */
-.bucket-list-section {
+/* Love Reasons Section */
+.love-reasons-section {
     margin: 80px 0;
 }
 
-.bucket-list-grid {
+.reasons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.bucket-item {
+.reason-card {
     position: relative;
-}
-
-.bucket-checkbox {
-    display: none;
-}
-
-.bucket-label {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: white;
-    padding: 20px 25px;
+    padding: 30px 20px;
     border-radius: 15px;
+    text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    position: relative;
     overflow: hidden;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.bucket-label::before {
+.reason-card::before {
     content: '';
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 5px;
+    background: inherit;
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
+
+.reason-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.reason-card:hover::before {
+    transform: scale(1.1);
+}
+
+/* Color variations */
+.reason-card[data-color="pink"] {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffc3e1 100%);
+}
+
+.reason-card[data-color="purple"] {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transition: width 0.3s ease;
 }
 
-.bucket-label:hover {
-    transform: translateX(5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+.reason-card[data-color="blue"] {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-.bucket-label:hover::before {
-    width: 100%;
-    opacity: 0.1;
+.reason-card[data-color="green"] {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
 }
 
-.bucket-checkbox:checked + .bucket-label {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border: 2px solid #667eea;
+.reason-card[data-color="orange"] {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 }
 
-.bucket-checkbox:checked + .bucket-label .bucket-text {
-    text-decoration: line-through;
-    opacity: 0.6;
-    color: #667eea;
+.reason-card[data-color="red"] {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
-.bucket-checkbox:checked + .bucket-label .bucket-icon {
-    animation: celebrate 0.6s ease;
+.reason-card[data-color="teal"] {
+    background: linear-gradient(135deg, #4facfe 0%, #43e97b 100%);
 }
 
-@keyframes celebrate {
-    0%, 100% {
-        transform: scale(1) rotate(0deg);
-    }
-    25% {
-        transform: scale(1.3) rotate(-10deg);
-    }
-    75% {
-        transform: scale(1.3) rotate(10deg);
-    }
+.reason-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.bucket-icon {
-    font-size: 2.5rem;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
-
-.bucket-text {
-    font-size: 1.1rem;
-    color: #333;
+.reason-text {
+    font-size: 1rem;
+    color: white;
     font-weight: 500;
-    transition: all 0.3s ease;
-    flex: 1;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.bucket-label:hover .bucket-icon {
-    transform: scale(1.1) rotate(5deg);
+.reason-card:hover .reason-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reason-card:hover .reason-number {
+    transform: scale(0.7) translateY(-10px);
+}
+
+.reason-card.active .reason-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reason-card.active .reason-number {
+    transform: scale(0.7) translateY(-10px);
 }
 
 /* Love Notes Section - Interactive Flip Cards */
@@ -879,22 +898,23 @@ section {
         font-size: 2rem;
     }
 
-    .bucket-list-grid {
-        grid-template-columns: 1fr;
+    .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
         padding: 0 10px;
         gap: 15px;
     }
 
-    .bucket-label {
-        padding: 15px 20px;
+    .reason-card {
+        min-height: 120px;
+        padding: 20px 15px;
     }
 
-    .bucket-icon {
-        font-size: 2rem;
+    .reason-number {
+        font-size: 2.5rem;
     }
 
-    .bucket-text {
-        font-size: 1rem;
+    .reason-text {
+        font-size: 0.9rem;
     }
 
     .unified-counter {

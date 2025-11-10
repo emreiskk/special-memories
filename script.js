@@ -93,19 +93,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Bucket list checkbox'ları - localStorage ile kaydet
-    const bucketCheckboxes = document.querySelectorAll('.bucket-checkbox');
-
-    // Sayfa yüklendiğinde kaydedilmiş durumları yükle
-    bucketCheckboxes.forEach(checkbox => {
-        const savedState = localStorage.getItem(checkbox.id);
-        if (savedState === 'true') {
-            checkbox.checked = true;
-        }
-
-        // Checkbox değiştiğinde kaydet
-        checkbox.addEventListener('change', function() {
-            localStorage.setItem(this.id, this.checked);
+    // Love reasons kartları - tıklayınca toggle
+    const reasonCards = document.querySelectorAll('.reason-card');
+    reasonCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Diğer kartların active'ini kaldır (mobil için)
+            reasonCards.forEach(c => {
+                if (c !== this) {
+                    c.classList.remove('active');
+                }
+            });
+            // Bu kartı toggle et
+            this.classList.toggle('active');
         });
     });
 });
