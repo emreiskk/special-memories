@@ -15,6 +15,22 @@ body {
     overflow-x: hidden;
 }
 
+/* Emoji Font Support - Tüm cihazlarda düzgün çalışması için */
+.card-icon,
+.chrysanthemum::before,
+.flower,
+.heart-big,
+.infinity-symbol,
+.counter-message,
+.final-quote,
+.poem-signature,
+.gallery-note,
+.section-subtitle {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiOne Color', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
