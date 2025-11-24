@@ -525,6 +525,7 @@ section {
 .bunny-animation-container {
     display: flex;
     justify-content: center;
+    margin-top: -60px;
     margin-bottom: 15px;
     animation: fadeIn 1.5s ease-in;
 }
@@ -672,6 +673,30 @@ section {
     z-index: 1;
     animation: fadeInLine 1s ease-in 2s forwards;
     opacity: 0;
+}
+
+/* Çiçek Görseli */
+.flower-image-container {
+    text-align: center;
+    margin: 30px 0 20px 0;
+    animation: fadeInLine 1s ease-in 1.8s forwards;
+    opacity: 0;
+}
+
+.poem-flower-image {
+    max-width: 250px;
+    height: auto;
+    filter: drop-shadow(0 8px 20px rgba(255, 107, 157, 0.4));
+    animation: floatFlower 3s ease-in-out infinite;
+}
+
+@keyframes floatFlower {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Love Message */
