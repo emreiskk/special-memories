@@ -1433,6 +1433,15 @@ section {
         height: 15px;
     }
 
+    /* Çiçek Görseli Mobil Ayarları */
+    .flower-image-container {
+        margin: 20px 0 15px 0;
+    }
+
+    .poem-flower-image {
+        max-width: 150px;
+    }
+
     /* Çiçek Süslemeleri Mobilde Gizle */
     .chrysanthemum-decoration {
         display: none;
