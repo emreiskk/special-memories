@@ -157,6 +157,228 @@ body {
     }
 }
 
+/* Lottie Kasımpatı Animasyonları */
+.lottie-chrysanthemum-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.lottie-flower {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.5));
+    animation: lottieFloat 20s infinite ease-in-out;
+}
+
+.lottie-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.lottie-2 {
+    top: 50%;
+    right: 15%;
+    animation-delay: 5s;
+    animation-duration: 22s;
+}
+
+.lottie-3 {
+    bottom: 15%;
+    left: 50%;
+    animation-delay: 10s;
+    animation-duration: 28s;
+}
+
+@keyframes lottieFloat {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) rotate(90deg) scale(1.1);
+    }
+    50% {
+        transform: translate(0, -60px) rotate(180deg) scale(0.9);
+    }
+    75% {
+        transform: translate(-30px, -30px) rotate(270deg) scale(1.1);
+    }
+}
+
+/* Kasımpatı Animasyonları */
+.chrysanthemum-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.chrysanthemum {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at center, #ff6b9d 0%, #ff8fab 30%, #ffc3e1 60%, transparent 100%);
+    border-radius: 50%;
+    animation: chrysanthemumFloat 20s infinite ease-in-out;
+    opacity: 0;
+}
+
+.chrysanthemum::before {
+    content: '🌺';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    animation: rotateChrysanthemum 10s linear infinite;
+}
+
+.chrysanthemum:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.chrysanthemum:nth-child(2) {
+    left: 25%;
+    animation-delay: 4s;
+    animation-duration: 22s;
+}
+
+.chrysanthemum:nth-child(3) {
+    left: 50%;
+    animation-delay: 8s;
+    animation-duration: 20s;
+}
+
+.chrysanthemum:nth-child(4) {
+    left: 75%;
+    animation-delay: 12s;
+    animation-duration: 19s;
+}
+
+.chrysanthemum:nth-child(5) {
+    left: 90%;
+    animation-delay: 16s;
+    animation-duration: 21s;
+}
+
+@keyframes chrysanthemumFloat {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg) scale(0.8);
+    }
+    10% {
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateX(100px) rotate(180deg) scale(1.2);
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(-50px) rotate(360deg) scale(0.8);
+    }
+}
+
+@keyframes rotateChrysanthemum {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Yüzen Çiçekler Animasyonları */
+.floating-flowers {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    font-size: 35px;
+    animation: floatFlower 15s infinite ease-in-out;
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.flower.rose {
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 16s;
+}
+
+.flower.daisy {
+    left: 35%;
+    animation-delay: 3s;
+    animation-duration: 14s;
+}
+
+.flower.tulip {
+    left: 55%;
+    animation-delay: 6s;
+    animation-duration: 18s;
+}
+
+.flower.blossom {
+    left: 70%;
+    animation-delay: 9s;
+    animation-duration: 15s;
+}
+
+.flower.sunflower {
+    left: 85%;
+    animation-delay: 12s;
+    animation-duration: 17s;
+}
+
+.flower.lavender {
+    left: 45%;
+    animation-delay: 2s;
+    animation-duration: 16s;
+}
+
+@keyframes floatFlower {
+    0% {
+        bottom: -80px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg) scale(0.7);
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(80px) rotate(180deg) scale(1.1);
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 105vh;
+        opacity: 0;
+        transform: translateX(-80px) rotate(360deg) scale(0.7);
+    }
+}
+
 /* Container */
 .container {
     max-width: 1200px;
@@ -267,6 +489,153 @@ section {
     color: white;
     margin-bottom: 40px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Kasım Şiir Bölümü */
+.november-poem {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.poem-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 245, 250, 0.95) 100%);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 107, 157, 0.3);
+}
+
+.poem-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 4s infinite;
+}
+
+/* Şiir Lottie Animasyonları */
+.poem-lottie-left,
+.poem-lottie-right {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+    filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.4));
+}
+
+.poem-lottie-left {
+    top: -30px;
+    left: -30px;
+    transform: rotate(-15deg);
+}
+
+.poem-lottie-right {
+    bottom: -30px;
+    right: -30px;
+    transform: rotate(15deg);
+}
+
+.chrysanthemum-decoration {
+    position: absolute;
+    font-size: 3rem;
+    animation: floatDecoration 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(255, 107, 157, 0.6));
+    z-index: 1;
+}
+
+.chrysanthemum-decoration.left {
+    top: 20px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.chrysanthemum-decoration.right {
+    bottom: 20px;
+    right: 20px;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatDecoration {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+.poem-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ff6b9d;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif;
+}
+
+.poem-content {
+    position: relative;
+    z-index: 1;
+}
+
+.poem-line {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #667eea;
+    text-align: center;
+    margin: 8px 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    animation: fadeInLine 1s ease-in forwards;
+    opacity: 0;
+}
+
+.poem-line:nth-child(1) { animation-delay: 0.2s; }
+.poem-line:nth-child(2) { animation-delay: 0.4s; }
+.poem-line:nth-child(3) { animation-delay: 0.6s; }
+.poem-line:nth-child(4) { animation-delay: 0.8s; }
+.poem-line:nth-child(6) { animation-delay: 1.2s; }
+.poem-line:nth-child(7) { animation-delay: 1.4s; }
+.poem-line:nth-child(8) { animation-delay: 1.6s; }
+.poem-line:nth-child(9) { animation-delay: 1.8s; }
+
+@keyframes fadeInLine {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-line-space {
+    height: 20px;
+}
+
+.poem-signature {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #764ba2;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInLine 1s ease-in 2s forwards;
+    opacity: 0;
 }
 
 /* Love Message */
@@ -884,6 +1253,50 @@ section {
     100% { color: #ff6b6b; }
 }
 
+/* Çiçek Patlaması Efekti */
+.flower-burst {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 25px;
+    animation: burstUp 1.5s ease-out forwards;
+}
+
+@keyframes burstUp {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0.5) rotate(360deg);
+    }
+}
+
+/* Işıltı Efekti */
+.sparkle-effect {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: sparkleOut 1s ease-out forwards;
+}
+
+@keyframes sparkleOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) translate(var(--dx), var(--dy));
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
@@ -896,6 +1309,60 @@ section {
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .poem-container {
+        padding: 30px 25px;
+        margin: 0 10px;
+    }
+
+    .poem-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .poem-line {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .chrysanthemum-decoration {
+        font-size: 2rem;
+    }
+
+    .chrysanthemum-decoration.left {
+        top: 10px;
+        left: 10px;
+    }
+
+    .chrysanthemum-decoration.right {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .poem-lottie-left,
+    .poem-lottie-right {
+        width: 80px;
+        height: 80px;
+    }
+
+    .poem-lottie-left {
+        top: -20px;
+        left: -20px;
+    }
+
+    .poem-lottie-right {
+        bottom: -20px;
+        right: -20px;
+    }
+
+    .lottie-flower {
+        width: 100px;
+        height: 100px;
+    }
+
+    .lottie-1, .lottie-2, .lottie-3 {
+        animation-duration: 15s !important;
     }
 
     .reasons-grid {

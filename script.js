@@ -77,11 +77,22 @@ console.log("%cSeni seviyorum! 💕", "color: #667eea; font-size: 16px;");
 
 // Sayfa yüklendiğinde özel efektler
 document.addEventListener('DOMContentLoaded', () => {
-    // Kalp tıklama efekti
+    // Çiçek patlaması sayacı
+    let flowerBurstCount = 0;
+    const maxFlowerBursts = 3;
+
+    // Kalp ve çiçek tıklama efekti
     document.addEventListener('click', (e) => {
         // Eğer flip card tıklanıyorsa kalp oluşturma
         if (!e.target.closest('.flip-card')) {
             createClickHeart(e.pageX, e.pageY);
+
+            // Her 3 tıklamada bir çiçek patlaması
+            flowerBurstCount++;
+            if (flowerBurstCount >= maxFlowerBursts) {
+                createFlowerBurst(e.pageX, e.pageY);
+                flowerBurstCount = 0;
+            }
         }
     });
 
@@ -143,3 +154,60 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Çiçek patlaması efekti
+function createFlowerBurst(x, y) {
+    const flowers = ['🌺', '🌸', '🌼', '🌻', '🌷', '🌹', '💐', '💜'];
+    const burstCount = 12;
+
+    for (let i = 0; i < burstCount; i++) {
+        const flower = document.createElement('div');
+        const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+        flower.innerHTML = randomFlower;
+        flower.className = 'flower-burst';
+
+        const angle = (Math.PI * 2 * i) / burstCount;
+        const distance = 80 + Math.random() * 40;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+
+        flower.style.left = x + 'px';
+        flower.style.top = y + 'px';
+        flower.style.setProperty('--tx', tx + 'px');
+        flower.style.setProperty('--ty', ty + 'px');
+
+        document.body.appendChild(flower);
+
+        setTimeout(() => flower.remove(), 1500);
+    }
+
+    // Işıltı efektleri ekle
+    for (let i = 0; i < 8; i++) {
+        setTimeout(() => createSparkle(x, y), i * 50);
+    }
+}
+
+// Işıltı efekti
+function createSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle-effect';
+
+    const dx = (Math.random() - 0.5) * 100;
+    const dy = (Math.random() - 0.5) * 100;
+
+    sparkle.style.left = x + 'px';
+    sparkle.style.top = y + 'px';
+    sparkle.style.setProperty('--dx', dx + 'px');
+    sparkle.style.setProperty('--dy', dy + 'px');
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 1000);
+}
+
+// Otomatik çiçek yağmuru - belirli aralıklarla
+setInterval(() => {
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    createFlowerBurst(x, y);
+}, 15000); // Her 15 saniyede bir rastgele çiçek patlaması

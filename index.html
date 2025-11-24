@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Özel Anılarımız ❤️</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
     <!-- Animated hearts and stars background -->
@@ -33,15 +35,101 @@
         <div class="star"></div>
     </div>
 
+    <!-- Kasımpatı Lottie Animasyonları -->
+    <div class="lottie-chrysanthemum-container">
+        <lottie-player
+            class="lottie-flower lottie-1"
+            src="https://lottie.host/e8b7c8d5-4c7f-4c4e-8e3f-2a3c4d5e6f7g/fNxYzAbCdE.json"
+            background="transparent"
+            speed="0.8"
+            loop
+            autoplay>
+        </lottie-player>
+        <lottie-player
+            class="lottie-flower lottie-2"
+            src="https://assets9.lottiefiles.com/packages/lf20_4pjrzxcn.json"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay>
+        </lottie-player>
+        <lottie-player
+            class="lottie-flower lottie-3"
+            src="https://assets5.lottiefiles.com/packages/lf20_ysjvewtn.json"
+            background="transparent"
+            speed="0.9"
+            loop
+            autoplay>
+        </lottie-player>
+    </div>
+
+    <!-- Kasımpatı Emoji Animasyonları (yedek) -->
+    <div class="chrysanthemum-container">
+        <div class="chrysanthemum"></div>
+        <div class="chrysanthemum"></div>
+        <div class="chrysanthemum"></div>
+        <div class="chrysanthemum"></div>
+        <div class="chrysanthemum"></div>
+    </div>
+
+    <!-- Yüzen Çiçekler -->
+    <div class="floating-flowers">
+        <div class="flower rose">🌹</div>
+        <div class="flower daisy">🌼</div>
+        <div class="flower tulip">🌷</div>
+        <div class="flower blossom">🌸</div>
+        <div class="flower sunflower">🌻</div>
+        <div class="flower lavender">💜</div>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
             <h1 class="fade-in glow">Senle Ben</h1>
-            <p class="subtitle fade-in-delay">Seninle geçen her an başka güzel bitanem ✨</p>
+            <p class="subtitle fade-in-delay">Her anımız bir mücevher, her gülüşün bir hazine... ✨</p>
             <div class="scroll-hint fade-in-delay-2">
                 <span>↓</span>
-                <p>Kaydır ve keşfet</p>
+                <p>Aşağı kaydır ve keşfet</p>
+            </div>
+        </section>
+
+        <!-- Kasım Ayı Özel Şiir Bölümü -->
+        <section class="november-poem">
+            <div class="poem-container fade-in floating">
+                <!-- Lottie Çiçek Süslemeleri -->
+                <lottie-player
+                    class="poem-lottie-left"
+                    src="https://assets5.lottiefiles.com/packages/lf20_ysjvewtn.json"
+                    background="transparent"
+                    speed="0.7"
+                    loop
+                    autoplay>
+                </lottie-player>
+                <lottie-player
+                    class="poem-lottie-right"
+                    src="https://assets5.lottiefiles.com/packages/lf20_ysjvewtn.json"
+                    background="transparent"
+                    speed="0.7"
+                    loop
+                    autoplay>
+                </lottie-player>
+                <div class="chrysanthemum-decoration left">🌺</div>
+                <div class="chrysanthemum-decoration right">🌺</div>
+                <h2 class="poem-title">Kasım'ın Işığısın</h2>
+                <div class="poem-content">
+                    <p class="poem-line">Kasım'ın soğuk günlerinde bile,</p>
+                    <p class="poem-line">Sen benim içimi ısıtan güneşimsin.</p>
+                    <p class="poem-line">Kasımpatı gibi narinsin, güzelsin,</p>
+                    <p class="poem-line">Her yaprak dökümünde bile umut veriyorsun.</p>
+                    <p class="poem-line-space"></p>
+                    <p class="poem-line">Sonbaharın renklerinden daha canlısın,</p>
+                    <p class="poem-line">Kış gelmeden önce son sıcaklığımsın.</p>
+                    <p class="poem-line">Kasım ayında bile çiçek açıyorsun kalbimde,</p>
+                    <p class="poem-line">Sen benim her mevsimim, her günümsün hayatım.</p>
+                    <p class="poem-line-space"></p>
+                    <p class="poem-signature">— Kasım'ın en güzel hediyesi sensin bitanem 💐</p>
+                </div>
             </div>
         </section>
 
@@ -59,7 +147,7 @@
                     Seninle geçirdiğim her saniye, her güzel anılarımı daha da özel bırakıyor.
                     Seninle olmak, hayatımın en büyük mutluluğu bitanem. Seni her şeyden çok seviyorum.
                 </p>
-                <p class="signature">— Seni sonsuza kadar seveceğim hayatım ❤️</p>
+                <p class="signature">— Seni sonsuza kadar seveceğim bitanem❤️</p>
             </div>
         </section>
 
@@ -110,145 +198,43 @@
                     <div class="photo-caption">Seninle her yer cennet</div>
                 </div>
             </div>
-            <p class="gallery-note">✨ Bizim anlarımız...</p>
+            <p class="gallery-note">✨ Özel anlarımızdan kareler...</p>
         </section>
 
-        <!-- Love Reasons Section -->
-        <section class="love-reasons-section">
-            <h2 class="section-title">Seni Neden Seviyorum?</h2>
-            <p class="section-subtitle">Kartlara tıkla, seni sevme nedenlerimi gör 💝</p>
-            <div class="reasons-grid">
-                <div class="reason-card" data-color="pink">
-                    <div class="reason-number">1</div>
-                    <div class="reason-text">Gülüşün her zaman içimi ısıtıyor</div>
-                </div>
-                <div class="reason-card" data-color="purple">
-                    <div class="reason-number">2</div>
-                    <div class="reason-text">Yanında kendim olabiliyorum</div>
-                </div>
-                <div class="reason-card" data-color="blue">
-                    <div class="reason-number">3</div>
-                    <div class="reason-text">Sessizliğimiz bile güzel</div>
-                </div>
-                <div class="reason-card" data-color="green">
-                    <div class="reason-number">4</div>
-                    <div class="reason-text">Sana baktığımda huzur buluyorum</div>
-                </div>
-                <div class="reason-card" data-color="orange">
-                    <div class="reason-number">5</div>
-                    <div class="reason-text">Her anın özel hissettiriyor</div>
-                </div>
-                <div class="reason-card" data-color="red">
-                    <div class="reason-number">6</div>
-                    <div class="reason-text">Beni olduğum gibi kabul ediyorsun</div>
-                </div>
-                <div class="reason-card" data-color="teal">
-                    <div class="reason-number">7</div>
-                    <div class="reason-text">Gözlerin bana ev gibi geliyor</div>
-                </div>
-                <div class="reason-card" data-color="pink">
-                    <div class="reason-number">8</div>
-                    <div class="reason-text">Seninle konuşmak hiç sıkmıyor</div>
-                </div>
-                <div class="reason-card" data-color="purple">
-                    <div class="reason-number">9</div>
-                    <div class="reason-text">Kalbim seninle huzurlu atıyor</div>
-                </div>
-                <div class="reason-card" data-color="blue">
-                    <div class="reason-number">10</div>
-                    <div class="reason-text">Hayallerimi seninle kuruyorum</div>
-                </div>
-                <div class="reason-card" data-color="green">
-                    <div class="reason-number">11</div>
-                    <div class="reason-text">Sen benim güvenli limanımsın</div>
-                </div>
-                <div class="reason-card" data-color="orange">
-                    <div class="reason-number">12</div>
-                    <div class="reason-text">Sonsuz sebepten daha fazla...</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secret Love Notes -->
-        <section class="love-notes-section">
-            <h2 class="section-title">Sana Gizli Notlar</h2>
-            <p class="section-subtitle">Kartları çevir, sana yazdıklarımı oku 💌</p>
-            <div class="flip-cards-grid">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="card-icon">💕</div>
-                            <h3>İlk Görüşte</h3>
-                            <p class="card-hint">Tıkla & Oku</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <p>"Seni ilk gördüğümde garip bir şey oldu bitanem. Sanki çok tanıdık geldin. Belki de kalbim seni tanıyordu..."</p>
-                        </div>
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <h2 class="section-title">Hikayemizin Dönüm Noktaları</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>İlk Tanışma</h3>
+                        <p class="timeline-date">Tarih: __/__/____</p>
+                        <p>O gün hayatımın en güzel macerasına başladım...</p>
                     </div>
                 </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="card-icon">✨</div>
-                            <h3>Gülüşün</h3>
-                            <p class="card-hint">Tıkla & Oku</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <p>"Gülüşüne bayılıyorum bitanem. Hele bir de gözlerin gülüyorsa... İşte o zaman dünyadaki en mutlu insanım."</p>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>İlk Buluşma</h3>
+                        <p class="timeline-date">Tarih: __/__/____</p>
+                        <p>Seni ilk gördüğümde kalbimin hızla çarptığını hissettim...</p>
                     </div>
                 </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="card-icon">🌙</div>
-                            <h3>Geceleri</h3>
-                            <p class="card-hint">Tıkla & Oku</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <p>"Geceleri uyumadan önce hep seni düşünüyorum bitanem. Ne yapıyorsun, ne düşünüyorsun diye. Biliyorum sen de beni düşünüyorsun..."</p>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Özel Bir An</h3>
+                        <p class="timeline-date">Tarih: __/__/____</p>
+                        <p>Bu anı asla unutmayacağım, seninle birlikte olmak çok özel...</p>
                     </div>
                 </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="card-icon">🌸</div>
-                            <h3>Sıradan Anlar</h3>
-                            <p class="card-hint">Tıkla & Oku</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <p>"Biliyorsun hayatım, bazen sadece yan yana oturup hiçbir şey yapmamak bile güzel. Çünkü sen yanımdasın."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="card-icon">🎯</div>
-                            <h3>Gelecek</h3>
-                            <p class="card-hint">Tıkla & Oku</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <p>"Gelecek planlarımın hepsinde sen varsın bitanem. Çünkü sensiz bir gelecek düşünemiyorum artık..."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="card-icon">💫</div>
-                            <h3>Seni Sevmek</h3>
-                            <p class="card-hint">Tıkla & Oku</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <p>"Seni sevmek bana çok kolay geliyor hayatım. Sanki bunun için doğmuşum gibi. Her gün daha çok seviyorum."</p>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Şimdi ve Gelecek</h3>
+                        <p class="timeline-date">Her Gün... ❤️</p>
+                        <p>Ve daha nice güzel anılar biriktireceğiz...</p>
                     </div>
                 </div>
             </div>
@@ -256,28 +242,30 @@
 
         <!-- Love Counter -->
         <section class="counter-section">
-            <h2 class="section-title">Birlikte Olduğumuz Zaman</h2>
-            <div class="unified-counter">
-                <div class="counter-display">
-                    <span class="counter-number" id="days">0</span>
-                    <span class="counter-text">Gün</span>
-                    <span class="counter-separator">:</span>
-                    <span class="counter-number" id="hours">0</span>
-                    <span class="counter-text">Saat</span>
-                    <span class="counter-separator">:</span>
-                    <span class="counter-number" id="minutes">0</span>
-                    <span class="counter-text">Dakika</span>
+            <h2 class="section-title">Birlikte Olduğumuz</h2>
+            <div class="counter-container">
+                <div class="counter">
+                    <div class="counter-value" id="days">0</div>
+                    <div class="counter-label">Gün</div>
                 </div>
-                <p class="counter-message">Seninle geçen her dakika değerli bitanem ❤️</p>
+                <div class="counter">
+                    <div class="counter-value" id="hours">0</div>
+                    <div class="counter-label">Saat</div>
+                </div>
+                <div class="counter">
+                    <div class="counter-value" id="minutes">0</div>
+                    <div class="counter-label">Dakika</div>
+                </div>
             </div>
+            <p class="counter-note">💡 İlk buluşma tarihinizi script.js'de ayarlayın</p>
         </section>
 
         <!-- Final Message -->
         <section class="final-message">
             <div class="heart-big">❤️</div>
             <h2 class="glow">Seni Çok Seviyorum</h2>
-            <p>Bu siteyi senin için yaptım. Anılarımızı hatırlamak için...</p>
-            <p class="final-quote">"Seninle geçen her an kalbimde kalacak."</p>
+            <p>Bu site, seninle geçirdiğim her anın ne kadar değerli olduğunu göstermek için...</p>
+            <p class="final-quote">"Seninle geçen her an, sonsuza kadar kalbimde yaşayacak."</p>
             <div class="infinity-symbol">∞</div>
         </section>
     </div>
